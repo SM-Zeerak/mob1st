@@ -2,6 +2,8 @@
 
 
 import 'package:first_ui/Screens/HomeScreen/components/background.dart';
+import 'package:first_ui/Screens/Notification/notification_tab.dart';
+import 'package:first_ui/Screens/Profile/profile_tab.dart';
 import 'package:first_ui/Screens/Tabs/balance.dart';
 import 'package:first_ui/Screens/Tabs/home.dart';
 import 'package:first_ui/Screens/Tabs/offer.dart';
@@ -33,40 +35,76 @@ class Body extends StatelessWidget {
                 children:[ 
                   
                   Positioned(
-                  bottom: 15,
-                  child:Image.asset('assets/images/circle_avatar_profile.png', height: 50.0,), 
+                  right: 285,
+                  child:IconButton(
+                    iconSize: 90,
+                    padding: EdgeInsets.only(top: 0,),
+                    onPressed: () {  
+                       Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => ProfileTab()));
+                    },
+                    icon: Image.asset('assets/images/circle_avatar_profile.png', height: 100.0,)), 
+                     
                 
                   
                 ),
                 Positioned(
-                  
+                  top: 5,
                   child:  RoundedSearchTextField(
                          hintText: "Search Users,ID’s etc",
                          
-                         onChanged: (value){},
+                         onChanged: (value){
+                         
+                         },
                          
                        ),
                  ),
+                Positioned(
+                  left: 317,
+                  top: 20,
+                  child: 
+                Container(
+                  width: 40,
+                  height: 45,
+                  decoration:BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromRGBO(52, 54, 69, 1)
+                  ),
+                )),
                  Positioned(
-                   child: Container(
-                         margin: const EdgeInsets.only(left: 320,top: 20),
-                          width: 40,
-                          child: const Icon(Icons.notifications_outlined,size: 40,color: Color.fromRGBO(151, 163, 171, 1),),
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: const Color.fromRGBO(52, 54, 69, 1)
-                          ),
-                        )
-                        )
+                  left: 343,
+                  top: 25,
+                  child: 
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration:BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromRGBO(77, 93, 250, 1)
+                  ),
+                )),
+                 Padding(
+                   padding: const EdgeInsets.only(left: 310,top: 17),
+                   child: IconButton(
+                                
+                                onPressed: () { 
+                                  Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => NotificationTab()));
+                                 },
+                                icon: Icon(Icons.notifications_outlined,size: 40,color: Color.fromRGBO(151, 163, 171, 1),),
+                                ),
+                 ),
+               
                        ],
                        ),
                        
               ),
+              SizedBox(height: 10,),
                Column(
 
                 children: [
                    Container(
-                    margin: const EdgeInsets.only(bottom: 10),
+                    margin: const EdgeInsets.only(bottom: 5),
                     child: const TabBar(
                       
                                tabs: [
